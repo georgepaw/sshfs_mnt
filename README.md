@@ -21,19 +21,19 @@ I'd recommend adding `mnt` and `umnt` to your path, then example usage is:
 ```bash
 mnt s1
 ```
-Note that these scripts use `sudo` for calling `sshfs` and `umount` (I found them more reliable this way).
-To do so run `sudo visudo` and add:
+Note that `umnt` scripts uses `sudo` for calling `umount` (I found it more reliable this way).
+To do so without being prompted for a password, run `sudo visudo` and add:
 ```bash
 ## Read drop-in files from /private/etc/sudoers.d
 ## (the '#' here does not indicate a comment)
 #includedir /private/etc/sudoers.d
 ```
 to the bottom of the file.
-And then create dropins for `sshfs` and `umount`:
+And then create dropin for `umount`:
 ```bash
-sudo touch /private/etc/sudoers.d/sshfs
-sudo touch /private/etc/sudoers.d/umount
+sudo visudo -f /etc/sudoers.d/umount
 ```
+(Don't write anything into the file, just write it.)
 
 For auto complete in zsh add this to you `~/.zshrc`
 ```bash

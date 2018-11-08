@@ -35,5 +35,5 @@ done < "$HOME/.mnt_script/mnt_points"
 eval localmount=$localmount
 
 if [ "$found" = true ]; then
-	sudo sshfs -o allow_other,reconnect,defer_permissions,noappledouble,defer_permissions,IdentityFile=~/.ssh/id_rsa $user@$hostname:$remotepath "$localmount"
+	sshfs -o allow_other,reconnect,defer_permissions,noappledouble,defer_permissions,IdentityFile=~/.ssh/id_rsa $user@$hostname:$remotepath "$localmount"
 fi
